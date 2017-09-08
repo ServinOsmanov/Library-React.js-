@@ -1,24 +1,24 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
 
-import BookList from './BookList';
-import Title from './Title'
-import Author from './Author'
-import Genre from './Genre'
-import PopUp from './PopUp'
-import PopUpForGenrePage from './PopUpForGenrePage'
+import BookList from './pages/BookList';
+import TitlePage from './pages/TitlePage';
+import AuthorPage from './pages/AuthorPage';
+import GenrePage from './pages/Genre';
+import PopUp from './pages/PopUp'
+import PopUpForGenrePage from './pages/PopUpForGenrePage';
 
 
 const App = () => {
 	return(
-    	<main>
+    	<div>
     		<Route exact path={'/'} component={BookList}/>  
-    		<Route exact path={'/:author'} component={PopUp}/>
-    		<Route exact path={'/Genre/:genre/:author'} component={PopUpForGenrePage}/>  
-    		<Route path={'/TitlePage/:title'} component={Title}/> 
-    		<Route path={'/Author/:name'} component={Author}/> 
-    		<Route path={'/Genre/:genre'} component={Genre}/>
-    	</main>
+            <Route path={'/TitlePage/:title'} component={TitlePage}/>
+    	    <Route path={'/Author/:name'} component={AuthorPage}/>
+            <Route path={'/Genre/:genre'} component={GenrePage}/>
+            <Route exact path={'/Genre/:genre/:author'} component={PopUpForGenrePage}/> 
+            <Route exact path={'/:author'} component={PopUp}/>
+        </div>
   	)
 }
 
